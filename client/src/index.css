@@ -1,0 +1,86 @@
+/* Remove any unwanted horizontal scroll */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+/* Ensure no extra scrolling */
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Navbar Fix */
+.styles.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow: hidden;  /* ✅ Fixes scrollbar issue */
+}
+
+/* ✅ Fix content going behind navbar */ */
+.page-content {
+   padding-top: 70px; 
+   margin-bottom: auto;
+} 
+
+
+
+/* Form Container Styling */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px); /* Ensures perfect centering */
+  overflow: hidden; /* Ensures no scrollbar */
+
+}
+
+.register-form {
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  text-align: center;
+}
+
+
+
+.alert {
+  position: fixed;
+  top: 65px; /* ✅ Navbar ke neeche fix karne ke liye */
+  left: 50%;
+  transform: translate(-50%, 0); /* ✅ Pure center me fix */
+  z-index: 1050 !important; /* ✅ Navbar se upar dikhne ke liye */
+  width: 50%;
+  max-width: 600px;
+  min-width: 300px;
+  text-align: center;
+  padding: 12px;
+  border-radius: 5px;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.register-container, .edit-container {
+  overflow: hidden;
+  height: 100vh;
+}

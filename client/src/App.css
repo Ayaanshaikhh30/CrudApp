@@ -1,0 +1,45 @@
+.add_btn {
+   text-align: right;
+}
+
+
+.container {
+ overflow: auto;
+ 
+
+}
+
+.detail-container {
+   margin-top: 80px;  /* Navbar ki height ke hisaab se adjust */
+   padding: 20px;
+ }
+
+ .table {
+   width: 80%;  /* Table ko thoda chhota karne ke liye */
+   margin: 41px auto;  /* Center align */
+   text-align: center;  /* Text ko center align karne ke liye */
+   border-collapse: collapse;  /* Borders ko properly adjust karne ke liye */
+ }
+
+
+
+ .icons1 {
+   display: flex;
+   justify-content: flex-end; /* Icons ko right align karne ke liye */
+   gap: 15px; /* Icons ke beech thoda space badhane ke liye */
+   margin-right: 80px;
+ }
+ .icons2 {
+   display: flex;
+   justify-content: flex-end; /* Icons ko right align karne ke liye */
+   gap: 15px; /* Icons ke beech thoda space badhane ke liye */
+   margin-right: 80px;
+ }
+ .icons3 {
+   display: flex;
+   justify-content: flex-end; /* Icons ko right align karne ke liye */
+   gap: 15px; /* Icons ke beech thoda space badhane ke liye */
+   margin-right: 80px;
+ }
+
+
