@@ -8,26 +8,24 @@ import profileImg from "../Component/profile.png";
 import { NavLink, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-
 const Detail = () => {
 
   const navigate = useNavigate();
   const { id } = useParams();
   console.log("User ID:", id);
-  
+
   const [getuserdata, setUserdata] = useState({});
-  
+
   const getdata = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/api/getuser/${id}`, { 
+        const res = await fetch(`http://localhost:8000/api/getuser/${id}`, {
           method: "GET",
           headers: { "Content-Type": "application/json" }
       });
-      
-  
+
           const data = await res.json();
           console.log("Fetched Data:", data);
-  
+
           if (!res.ok) {
               console.error("Error fetching user:", res.status, data.message);
           } else {
@@ -37,14 +35,14 @@ const Detail = () => {
           console.error("Fetch error:", error);
       }
   };
-  
+
   useEffect(() => {
       if (id) getdata();
   }, [id]); // ✅ ID change hone par hi API call hogi
-  
+
   const deleteuser = async (id) => {
     try {
-        const res2 = await fetch(`http://localhost:8000/api/deleteuser/${id}`, { 
+        const res2 = await fetch(`http://localhost:8000/api/deleteuser/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -52,17 +50,15 @@ const Detail = () => {
         });
 
         if (!res2.ok) {
-            console.log("Error:", await res2.text());  
+            console.log("Error:", await res2.text());
             return;
         }
 
-        const deletedata = await res2.json(); 
+        const deletedata = await res2.json();
 
         console.log("Deleted User:", deletedata);
-         
+
         navigate("/");
-        
-        
 
     } catch (error) {
         console.error("Delete Request Failed:", error);
@@ -70,24 +66,16 @@ const Detail = () => {
 };
 
 useEffect(() => {
-  document.body.style.overflow = "hidden"; 
+  document.body.style.overflow = "hidden";
 
   return () => {
-    document.body.style.overflow = "auto"; 
+    document.body.style.overflow = "auto";
   };
 }, []);
 
-
-
-
-
-
-
   return (
     <>
-    
 
-    
     <div
     style={{
       display: "flex",
@@ -107,8 +95,7 @@ useEffect(() => {
         marginBottom:10
       }}
     >
-    
-  
+
         <CardContent>
           {/* Header */}
           <Typography variant="h5" fontWeight="bold" align="center" color="primary">
@@ -132,7 +119,7 @@ useEffect(() => {
 
           {/* Contact & Work Info */}
           <div style={{marginTop:20}}>
-          
+
             <Typography variant="body1" display="flex" alignItems="center"  sx={{ marginBottom: "10px" }}>
               <Email sx={{ marginRight: "10px", color: "#1976d2" }} /> <b>Email:</b> {getuserdata.email}
             </Typography>
@@ -147,15 +134,13 @@ useEffect(() => {
             </Typography>
           </div>
           </div>
-          
-          {/* Description */}
-          
-          <Typography variant="body2" sx={{ marginTop: "20px", fontStyle: "italic", color: "#555" }}>
-            <b>Description:</b>{getuserdata.desc} 
-          </Typography>
-         
 
-         
+          {/* Description */}
+
+          <Typography variant="body2" sx={{ marginTop: "20px", fontStyle: "italic", color: "#555" }}>
+            <b>Description:</b>{getuserdata.desc}
+          </Typography>
+
         </CardContent>
       </Card>
     </div>
@@ -164,6 +149,5 @@ useEffect(() => {
 };
 
 export default Detail;
-
 
 

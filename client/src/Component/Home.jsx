@@ -5,6 +5,7 @@ import { adddata, updatadata } from "./Context/Contextprovider";
 const Home = () => {
   const [alertType, setAlertType] = useState("success"); 
   const { udata, setudata } = useContext(adddata);
+  console.log("Outside useEffect: udata =", udata); 
   const { updata, setUPdata } = useContext(updatadata); // ✅ Corrected `updata`
   
  
@@ -51,8 +52,10 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    console.log("Inside useEffect: udata =", udata);
     if (udata) {
-      setAlertMessage("User added successfully!");
+
+      setAlertMessage(`${udata.name} added successfully!`);
       setAlertType("success");
       setSuccessAlert(true);
       setTimeout(() => {
@@ -60,11 +63,13 @@ const Home = () => {
         setudata(null);
       }, 5000);
     }
-  }, [udata]);
+  }, [udata]); 
+
 
   useEffect(() => {
     if (updata) {
-      setAlertMessage("User updated successfully!");
+      setAlertMessage(`${updata.name} updated successfully!`);
+    
       setAlertType("success");
       setSuccessAlert(true);
       setTimeout(() => {
